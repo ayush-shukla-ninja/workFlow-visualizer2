@@ -93,7 +93,12 @@ function ShapeNode({ data, selected, sourcePosition, targetPosition  }: NodeProp
           // wordBreak:'break-word',  
         }}
       >
-        <div style={{ fontFamily: 'monospace', fontWeight: 'bold', color: 'white', fontSize: 12,paddingInline:14, whiteSpace: 'nowrap',overflow: 'hidden',textOverflow: 'ellipsis'  }}>{data?.label}</div>
+        <div className='tooltip' style={{fontFamily: 'monospace', fontWeight: 'bold', color: 'white', fontSize: 12,paddingInline:14, whiteSpace: 'nowrap',overflow: 'hidden',textOverflow: 'ellipsis'  }}>
+          {data?.label}
+          <pre className="tooltip-text">
+             {data?.label}
+          </pre>
+        </div>
       </div>
     </div>
   );
