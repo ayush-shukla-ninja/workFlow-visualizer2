@@ -181,4 +181,195 @@ const data = {
     "_class" : "com.ninjacart.wf.infra.adapters.domains.configuration.entities.ServiceConfigEntity"
 }
 
+
+// const data = {
+//   apiComponentList: [
+//     {
+//       apiConfigDefinition: {
+//         name: "PUT: /api/v1/realm/{realmId}/user/{userId}/loans/additionalInfo",
+//         version: 1,
+//         apiConfigReference: {
+//           serviceName: "Fintech LSP Service",
+//           verb: "PUT",
+//           url: "/api/v1/realm/{realmId}/user/{userId}/loans/additionalInfo",
+//         },
+//       },
+//       mappings: {
+//         requestBodyMapping: {
+//           loanId: "$.input.loanId",
+//           refType: "$.input.refType",
+//           refId: "$.input.refId",
+//         },
+//         pathParamMapping: {
+//           userId: "$$USERID",
+//           realmId: "$$REALM_ID",
+//         },
+//       },
+//       name: "update-loan-additional-info",
+//       version: 1,
+//     },
+//     {
+//       apiConfigDefinition: {
+//         apiConfigReference: {
+//           serviceName: "Fintech LSP Service",
+//           verb: "GET",
+//           url: "/api/v1/realm/{realmId}/user/{userId}/loans/{loanId}",
+//         },
+//         name: "GET: /api/v1/realm/{realmId}/user/{userId}/loans/{loanId}",
+//         version: 1,
+//       },
+//       mappings: {
+//         pathParamMapping: {
+//           realmId: "ninjacart",
+//           userId: "$$USERID",
+//           loanId: "$.input.loanId",
+//         },
+//         headerMapping: {},
+//         requestBodyMapping: {},
+//       },
+//       name: "get-all-loans",
+//       version: 1,
+//     },
+//     {
+//       mappings: {
+//         pathParamMapping: {
+//           loanId:
+//             "$.auto-approve-liquiloans-bnpl-loan[1]['data']['externalId']",
+//         },
+//         requestBodyMapping: {
+//           __SELF: {
+//             approvedOnDate:
+//               "$.auto-approve-liquiloans-bnpl-loan[1]['data']['submittedOnDate']",
+//             approvedLoanAmount:
+//               "$.auto-approve-liquiloans-bnpl-loan[1]['data']['allowedLimit']",
+//             expectedDisbursementDate:
+//               "$.auto-approve-liquiloans-bnpl-loan[1]['data']['expectedDisbursementDate']",
+//             note: "approving loan",
+//             locale: "en",
+//             dateFormat: "dd-MM-yyyy",
+//           },
+//         },
+//       },
+//       apiConfigDefinition: {
+//         name: "approve-loan-by-id",
+//         version: 1,
+//         apiConfigReference: {
+//           serviceName: "NC LSP Gateway Service",
+//           verb: "POST",
+//           url: "/api/loans/{loanId}/approve",
+//         },
+//       },
+//       name: "approve-loan-by-id",
+//       version: 1,
+//     },
+//     {
+//       mappings: {
+//         pathParamMapping: {
+//           commandId: "$.auto-approve-liquiloans-bnpl-loan[2]['commandId']",
+//         },
+//       },
+//       runtimeConfig: {
+//         continueOnError: true,
+//       },
+//       ruleConfigIdentifierDefinition: {
+//         name: "convertToApproveLoan",
+//         version: "1",
+//         evaluationMode: "CONTINUOUS",
+//         expressions: [
+//           {
+//             type: "CONDITIONAL",
+//             rhs: "{{$.auto-approve-liquiloans-bnpl-loan[2].commandId}} !=null",
+//           },
+//         ],
+//       },
+//       apiConfigDefinition: {
+//         name: "approve-maker-checker",
+//         version: 1,
+//         apiConfigReference: {
+//           serviceName: "NC LSP Gateway Service",
+//           verb: "POST",
+//           url: "/api/makercheckers/{commandId}/approve",
+//         },
+//       },
+//       name: "approve-maker-checker",
+//       version: 1,
+//     },
+//     {
+//       apiConfigDefinition: {
+//         apiConfigReference: {
+//           serviceName: "workflow-service-config-run",
+//           verb: "POST",
+//           url: "/{realmId}/{userId}/v1/execution/service/run/{serviceConfigName}",
+//         },
+//         name: "trader-realm-status-v1",
+//         version: 1,
+//       },
+//       mappings: {
+//         requestBodyMapping: {
+//           input: {
+//             userId: "$$USERID",
+//           },
+//         },
+//         pathParamMapping: {
+//           userId: "$$USERID",
+//           realmId: "$$REALM_ID",
+//           serviceConfigName: "trader-realm-status-v1",
+//         },
+//       },
+//       runtimeConfig: {
+//         continueOnError: true,
+//       },
+//       name: "trader-realm-status-v1",
+//       version: 1,
+//     },
+//     {
+//       apiConfigDefinition: {
+//         apiConfigReference: {
+//           serviceName: "Ninjapay Services",
+//           verb: "POST",
+//           url: "/ninjapay/api/v1/bnpl/realms/{realmId}/users/{userId}/onboarding/status",
+//         },
+//         name: "update-liquiloans-status",
+//         version: 1,
+//       },
+//       mappings: {
+//         pathParamMapping: {
+//           userId: "$$USERID",
+//           realmId: "$$REALM_ID",
+//         },
+//         requestBodyMapping: {
+//           userId: "$$USERID",
+//           realmId: "$$REALM_ID",
+//           phoneNumber:
+//             "$.auto-approve-liquiloans-bnpl-loan[4].data.primaryRealm.contactNumber",
+//           status: "ACTIVE",
+//         },
+//       },
+//       name: "update-liquiloans-status",
+//       version: 1,
+//     },
+//   ],
+//   responseDefinition: {
+//     responseMapping: {
+//       0: "$.auto-approve-liquiloans-bnpl-loan[0]",
+//       1: "$.auto-approve-liquiloans-bnpl-loan[1]",
+//       2: "$.auto-approve-liquiloans-bnpl-loan[2]",
+//       3: "$.auto-approve-liquiloans-bnpl-loan[3]",
+//       4: "$.auto-approve-liquiloans-bnpl-loan[4]",
+//       5: "$.auto-approve-liquiloans-bnpl-loan[5]",
+//       message: "approved loan and updated LiquiLoans status to ACTIVE",
+//       externalId: "$.auto-approve-liquiloans-bnpl-loan[1].data.externalId",
+//       approvedOnDate:
+//         "$.auto-approve-liquiloans-bnpl-loan[1]['data']['expectedDisbursementDate']",
+//       approvedLoanAmount:
+//         "$.auto-approve-liquiloans-bnpl-loan[1]['data']['allowedLimit']",
+//       expectedDisbursementDate:
+//         "$.auto-approve-liquiloans-bnpl-loan[1]['data']['expectedDisbursementDate']",
+//     },
+//   },
+//   name: "auto-approve-liquiloans-bnpl-loan",
+//   version: 1,
+//   active: true,
+// };
+
 export default data;

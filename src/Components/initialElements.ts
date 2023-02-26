@@ -25,15 +25,28 @@ export const nodeData = {
     data.apiComponentList.map((d:any , idx:Number)=>{
       if(!d.ruleConfigIdentifierDefinition)
       {
-        arr.push({
-          type: 'shape',
-          id: index.toString(),
-          data: {shape: 'round-rect', height: 60, label: d.name, color: '#34eb7a'},
-          position: { x: 0, y: 0 },
-        });
+        if(d.apiConfigDefinition.apiConfigReference.url.includes('service/'))
+        {
+          arr.push({
+            type: 'shape',
+            id: index.toString(),
+            data: {shape: 'round-rect', height: 60, label: d.name, color: '#EB5406'},
+            position: { x: 0, y: 0 },
+          });
+          
+          index++;
+        }else{
+          arr.push({
+            type: 'shape',
+            id: index.toString(),
+            data: {shape: 'round-rect', height: 60, label: d.name, color: '#34eb7a'},
+            position: { x: 0, y: 0 },
+          });
 
+          index++;
+        }
 
-        index++;
+       
       }else if(d.ruleConfigIdentifierDefinition)
       {
         arr.push({
@@ -46,16 +59,29 @@ export const nodeData = {
 
         index++;
 
+        if(d.apiConfigDefinition.apiConfigReference.url.includes('service/'))
+        {
+          arr.push({
+            type: 'shape',
+            id: index.toString(),
+            data: {shape: 'round-rect', height: 60, label: d.name, color: '#EB5406'},
+            position: { x: 0, y: 0 },
+          });
+          
+          index++;
 
-        arr.push({
+        }else{
+          arr.push({
           type: 'shape',
           id: index.toString(),
           data: {shape: 'round-rect', height: 60, label: d.name, color: '#34eb7a'},
           position: { x: 0, y: 0 },
-        });
+          });
+
+          index++;
+        }
 
 
-        index++;
       }
     })
 
