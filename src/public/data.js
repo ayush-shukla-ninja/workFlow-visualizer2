@@ -904,4 +904,4 @@ const data3 =
 
 
 
-export default data2;
+export default data;
