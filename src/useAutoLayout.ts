@@ -40,7 +40,7 @@ const nodeCountSelector = (state: ReactFlowState) => state.nodeInternals.size;
 const nodesInitializedSelector = (state: ReactFlowState) =>
   Array.from(state.nodeInternals.values()).every((node) => node.width && node.height);
 
-function useAutoLayout(options: Options) {
+export function useAutoLayout(options: Options) {
   const { direction } = options;
   const nodeCount = useStore(nodeCountSelector);
   const nodesInitialized = useStore(nodesInitializedSelector);
@@ -84,4 +84,4 @@ function useAutoLayout(options: Options) {
   }, [nodeCount, nodesInitialized, getNodes, getEdges, setNodes, setEdges, fitView, direction]);
 }
 
-export default useAutoLayout;
+// export default useAutoLayout;
