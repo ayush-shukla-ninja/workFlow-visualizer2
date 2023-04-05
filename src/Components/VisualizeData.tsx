@@ -2,14 +2,6 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { edgesData, nodesData } from "./initialElements";
 
-import React, {
-  MouseEvent,
-  DragEvent,
-  DragEventHandler,
-  useRef,
-  useCallback,
-  Fragment,
-} from "react";
 import ReactFlow, {
   MarkerType,
   ReactFlowProvider,
@@ -139,8 +131,8 @@ const VisualizeData = () => {
 
   useEffect(() => {
     if (location?.state) {
-      const im = JSON.parse(location.state);
-      setInitialElements(im);
+      const uploadedData = JSON.parse(location.state);
+      setInitialElements(uploadedData);
     } else {
       navigate("/");
     }
