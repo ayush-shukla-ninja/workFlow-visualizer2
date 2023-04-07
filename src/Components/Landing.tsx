@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
+import { toast } from "react-toastify";
 
 const isValidJSON = (payload: string) => {
   try {
@@ -28,7 +30,7 @@ const Landing = () => {
 
   const handleVisualizeClick = () => {
     if (!fileData || !isValidJSON(fileData)) {
-      alert("Data not valid!!");
+      toast.error("Data is not valid");
       return;
     }
     navigate("/visualize", { state: fileData });
@@ -42,9 +44,9 @@ const Landing = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          minHeight: "100vh",
           flexDirection: "column",
           gap: "2rem",
+          marginTop: "4rem",
         }}
       >
         {/* <input type="file" name="" id="" 
@@ -70,6 +72,8 @@ const Landing = () => {
           Visualize
         </button>
       </div>
+      <hr className="hr" />
+      <SearchBar />
     </>
   );
 };
