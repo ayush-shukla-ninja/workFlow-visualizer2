@@ -46,11 +46,12 @@ export const nodesData = (data: any): Node[] => {
           data: {
             shape: "round-rect",
             height: 60,
-            label: JSON.stringify(
-              d.apiConfigDefinition.apiConfigReference,
-              null,
-              "\t"
-            ).toString(),
+            label: d.name,
+            // label: JSON.stringify(
+            //   d.apiConfigDefinition.apiConfigReference,
+            //   null,
+            //   "\t"
+            // ).toString(),
             color: "#34eb7a",
           },
           position: { x: 0, y: 0 },
@@ -103,11 +104,12 @@ export const nodesData = (data: any): Node[] => {
           data: {
             shape: "round-rect",
             height: 60,
-            label: JSON.stringify(
-              d.apiConfigDefinition.apiConfigReference,
-              null,
-              "\t"
-            ).toString(),
+            label: d.name,
+            // label: JSON.stringify(
+            //   d.apiConfigDefinition.apiConfigReference,
+            //   null,
+            //   "\t"
+            // ).toString(),
             color: "#34eb7a",
           },
           position: { x: 0, y: 0 },
