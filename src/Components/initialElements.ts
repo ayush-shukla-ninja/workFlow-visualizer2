@@ -28,7 +28,11 @@ export const nodesData = (data: any): Node[] => {
           data: {
             shape: "round-rect",
             height: 60,
-            label: d.name,
+            label: JSON.stringify(
+              d.apiConfigDefinition.apiConfigReference,
+              null,
+              "\t"
+            ).toString(),
             color: "#EB5406",
           },
           position: { x: 0, y: 0 },
@@ -42,7 +46,11 @@ export const nodesData = (data: any): Node[] => {
           data: {
             shape: "round-rect",
             height: 60,
-            label: d.name,
+            label: JSON.stringify(
+              d.apiConfigDefinition.apiConfigReference,
+              null,
+              "\t"
+            ).toString(),
             color: "#34eb7a",
           },
           position: { x: 0, y: 0 },
@@ -58,7 +66,11 @@ export const nodesData = (data: any): Node[] => {
           shape: "diamond",
           height: 60,
           width: 160,
-          label: d.ruleConfigIdentifierDefinition.name,
+          label: JSON.stringify(
+            d.ruleConfigIdentifierDefinition,
+            null,
+            "\t"
+          ).toString(),
           color: "#eba834",
         },
         position: { x: 0, y: 0 },
@@ -73,7 +85,11 @@ export const nodesData = (data: any): Node[] => {
           data: {
             shape: "round-rect",
             height: 60,
-            label: d.name,
+            label: JSON.stringify(
+              d.apiConfigDefinition.apiConfigReference,
+              null,
+              "\t"
+            ).toString(),
             color: "#EB5406",
           },
           position: { x: 0, y: 0 },
@@ -87,7 +103,11 @@ export const nodesData = (data: any): Node[] => {
           data: {
             shape: "round-rect",
             height: 60,
-            label: d.name,
+            label: JSON.stringify(
+              d.apiConfigDefinition.apiConfigReference,
+              null,
+              "\t"
+            ).toString(),
             color: "#34eb7a",
           },
           position: { x: 0, y: 0 },
