@@ -74,11 +74,7 @@ export const nodesData = (data: any): Node[] => {
           shape: "diamond",
           height: 60,
           width: 160,
-          label: JSON.stringify(
-            d.ruleConfigIdentifierDefinition,
-            null,
-            "\t"
-          ).toString(),
+          label: d.name,
           color: "#eba834",
           info: JSON.stringify(
             d.ruleConfigIdentifierDefinition,
