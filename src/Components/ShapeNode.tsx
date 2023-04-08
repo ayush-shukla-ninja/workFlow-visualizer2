@@ -96,7 +96,7 @@ function ShapeNode({ data, selected, sourcePosition, targetPosition  }: NodeProp
         <div className='tooltip' style={{fontFamily: 'monospace', fontWeight: 'bold', color: 'white', fontSize: 12,paddingInline:14, whiteSpace: 'nowrap',overflow: 'hidden',textOverflow: 'ellipsis'  }}>
           {data?.label}
           <pre className="tooltip-text">
-             {data?.label}
+             {data?.info}
           </pre>
         </div>
       </div>

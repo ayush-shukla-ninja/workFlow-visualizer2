@@ -11,6 +11,7 @@ export const nodesData = (data: any): Node[] => {
       height: "40",
       label: "Start",
       color: "#668de3",
+      info: "Start"
     },
     position: { x: 0, y: 0 },
   });
@@ -28,12 +29,13 @@ export const nodesData = (data: any): Node[] => {
           data: {
             shape: "round-rect",
             height: 60,
-            label: JSON.stringify(
+            label: d.name,
+            color: "#EB5406",
+            info: JSON.stringify(
               d.apiConfigDefinition.apiConfigReference,
               null,
               "\t"
             ).toString(),
-            color: "#EB5406",
           },
           position: { x: 0, y: 0 },
         });
@@ -47,6 +49,11 @@ export const nodesData = (data: any): Node[] => {
             shape: "round-rect",
             height: 60,
             label: d.name,
+            info: JSON.stringify(
+              d.apiConfigDefinition.apiConfigReference,
+              null,
+              "\t"
+             ).toString(),
             // label: JSON.stringify(
             //   d.apiConfigDefinition.apiConfigReference,
             //   null,
@@ -73,6 +80,11 @@ export const nodesData = (data: any): Node[] => {
             "\t"
           ).toString(),
           color: "#eba834",
+          info: JSON.stringify(
+            d.ruleConfigIdentifierDefinition,
+            null,
+            "\t"
+          ).toString(),
         },
         position: { x: 0, y: 0 },
       });
@@ -86,12 +98,13 @@ export const nodesData = (data: any): Node[] => {
           data: {
             shape: "round-rect",
             height: 60,
-            label: JSON.stringify(
+            label: d.name,
+            color: "#EB5406",
+            info: JSON.stringify(
               d.apiConfigDefinition.apiConfigReference,
               null,
               "\t"
             ).toString(),
-            color: "#EB5406",
           },
           position: { x: 0, y: 0 },
         });
@@ -111,6 +124,11 @@ export const nodesData = (data: any): Node[] => {
             //   "\t"
             // ).toString(),
             color: "#34eb7a",
+            info: JSON.stringify(
+              d.apiConfigDefinition.apiConfigReference,
+              null,
+              "\t"
+              ).toString(),
           },
           position: { x: 0, y: 0 },
         });
@@ -133,6 +151,11 @@ export const nodesData = (data: any): Node[] => {
           "\t"
         ).toString(),
         color: "#ebd934",
+        info: JSON.stringify(
+          data.responseDefinition?.responseMapping,
+          null,
+          "\t"
+        ).toString(),
       },
       position: { x: 0, y: 0 },
     });
@@ -147,6 +170,7 @@ export const nodesData = (data: any): Node[] => {
       height: "40",
       label: "Stop",
       color: "#668de3",
+      info: "Stop",
     },
     position: { x: 0, y: 0 },
   });
@@ -162,8 +186,8 @@ export const edgesData = (data: any): Edge[] => {
     id: `${index}->${index + 1}`,
     source: index.toString(),
     target: (index + 1).toString(),
-    sourceHandle: "bottom",
-    targetHandle: "top",
+    // sourceHandle: "bottom",
+    // targetHandle: "top",
   });
   index++;
 
@@ -173,8 +197,8 @@ export const edgesData = (data: any): Edge[] => {
         id: `${index}->${index + 1}`,
         source: index.toString(),
         target: (index + 1).toString(),
-        sourceHandle: "bottom",
-        targetHandle: "top",
+        // sourceHandle: "bottom",
+        // targetHandle: "top",
       });
 
       index++;
@@ -183,8 +207,8 @@ export const edgesData = (data: any): Edge[] => {
         id: `${index}->${index + 1}`,
         source: index.toString(),
         target: (index + 1).toString(),
-        sourceHandle: "bottom",
-        targetHandle: "top",
+        // sourceHandle: "bottom",
+        // targetHandle: "top",
         animated: true,
       });
 
@@ -194,8 +218,8 @@ export const edgesData = (data: any): Edge[] => {
         id: `${index}->${index + 1}`,
         source: index.toString(),
         target: (index + 1).toString(),
-        sourceHandle: "bottom",
-        targetHandle: "top",
+        // sourceHandle: "bottom",
+        // targetHandle: "top",
       });
 
       index++;
@@ -207,8 +231,8 @@ export const edgesData = (data: any): Edge[] => {
       id: `${index}->${index + 1}`,
       source: index.toString(),
       target: (index + 1).toString(),
-      sourceHandle: "bottom",
-      targetHandle: "top",
+      // sourceHandle: "bottom",
+      // targetHandle: "top",
     });
     index++;
   }
