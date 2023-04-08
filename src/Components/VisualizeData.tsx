@@ -68,12 +68,34 @@ function ReactFlowPro({ direction = "TB", initialElements }: ExampleProps) {
   // this hook handles the computation of the layout once the elements or the direction changes
   const { fitView } = useReactFlow();
 
-  useAutoLayout({ direction });
-  // const [nodes, setNodes] = useState<Node<NodeData>[]>(initialElements.nodes);
-  // const [edges, setEdges] = useState<Edge[]>(initialElements.edges);
+  // useAutoLayout({ direction });
+  // // const [nodes, setNodes] = useState<Node<NodeData>[]>(initialElements.nodes);
+  // // const [edges, setEdges] = useState<Edge[]>(initialElements.edges);
 
-  const [nodes, setNodes] = useNodesState(nodesData(initialElements));
-  const [edges, setEdges] = useEdgesState(edgesData(initialElements));
+  // const [totalNodes, setTotalNodes] = useState<Node[]>([]);
+  // const [totalEdges, setTotalEdges] = useState<Edge[]>([]);
+
+
+
+  // console.log(totalNodes, "total nodes goes here....");
+
+  // const [nodes, setNodes] = useNodesState(totalNodes);
+  // const [edges, setEdges] = useEdgesState(totalEdges);
+
+  //   useEffect(() => {
+  //     const a = nodesData(initialElements);
+  //     const b = edgesData(initialElements);
+  //     setNodes(a);
+  //     setEdges(b);
+  //   }, []);
+
+
+    useAutoLayout({ direction });
+    // const [nodes, setNodes] = useState<Node<NodeData>[]>(initialElements.nodes);
+    // const [edges, setEdges] = useState<Edge[]>(initialElements.edges);
+
+    const [nodes, setNodes] = useNodesState(nodesData(initialElements));
+    const [edges, setEdges] = useEdgesState(edgesData(initialElements));
 
   const onNodesChange: OnNodesChange = (changes: NodeChange[]) => {
     setNodes((nodes) => applyNodeChanges(changes, nodes));
@@ -107,7 +129,7 @@ function ReactFlowPro({ direction = "TB", initialElements }: ExampleProps) {
         maxZoom={Infinity}
       >
         <SelectedNodesToolbar />
-        <Background color="#bbb" gap={50} variant={BackgroundVariant.Dots} />
+        {/* <Background color="#bbb" gap={50} variant={BackgroundVariant.Dots} /> */}
         <Controls />
       </ReactFlow>
     </div>

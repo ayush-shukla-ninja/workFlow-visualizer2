@@ -14,7 +14,7 @@ type UseShapeOptions = {
 };
 
 function useShape({ type, width, height, color = '#9ca8b3', selected }: UseShapeOptions) {
-  const styles = { fill: color, strokeWidth: selected ? 2 : 0, stroke: '#fff'};
+  const styles = { fill: color, strokeWidth: selected ? 2 : 0, stroke: 'black'};
 
   switch (type) {
     case 'circle':
