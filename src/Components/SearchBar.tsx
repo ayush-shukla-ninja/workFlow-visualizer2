@@ -39,11 +39,7 @@ const SearchBar = () => {
               for(let index2 = 0; index2<item.ruleConfigExecution.length; index2++){
                 const item1 = item.ruleConfigExecution[index2];
               const name = item1.name;
-              var requestOptions = {
-                method: "GET",
-                //headers: myHeaders,
-                redirect: "follow",
-              };
+ 
               fetch(
                 `http://localhost:8080/service/rfind/${name}`
               )
@@ -55,17 +51,20 @@ const SearchBar = () => {
                 })
                 .catch((error) => console.log("error", error));
 
-              // axios.get(`http://localhost:8080/service/rfind/${name}`).then((res1: any)=>{
-              //   //console.log("aaa",res1.data[0]);
-              //   //console.log(index2);
-              //   console.log("lhs", fetchedData.apiComponentList[0]);
-              //   //fetchedData.apiComponentList.ruleConfigExecution[index] = res1.data[0];
-              //   index2++;
-              // })
             }
+          }else if(item.ruleConfigIdentifier){
+            const name = item.ruleConfigIdentifier.name;
+            fetch(`http://localhost:8080/service/rfind/${name}`)
+              .then((response) => response.json())
+              .then((result: any) => {
+                // console.log("lhs", index1, fetchedData.apiComponentList);
+                //console.log("rhs", result);
+                fetchedData.apiComponentList[index1].ruleConfigIdentifier = result[0];
+              })
+              .catch((error) => console.log("error", error));
           }
           
-          // index1++;
+          
         }
         //console.log("data1", fetchedData);
         setTimeout(function () {
