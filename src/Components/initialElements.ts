@@ -2,6 +2,7 @@ import { Node, Edge } from "reactflow";
 import axios from "axios";
 
 export const nodesData = (data: any): Node[] => {
+  console.log("data88", data);
   const arr: Node[] = [];
 
   arr.push({

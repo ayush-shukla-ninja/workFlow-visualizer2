@@ -34,8 +34,10 @@ const SearchBar = () => {
           const item = res.data[0].apiComponentList[index1];
           console.log(index1);
           if (item.ruleConfigExecution) {
-            let index2 = 0;
-            for (const item1 of item.ruleConfigExecution) {
+            //let index2 = 0;
+            // for (const item1 of item.ruleConfigExecution) {
+              for(let index2 = 0; index2<item.ruleConfigExecution.length; index2++){
+                const item1 = item.ruleConfigExecution[index2];
               const name = item1.name;
               var requestOptions = {
                 method: "GET",
@@ -45,10 +47,10 @@ const SearchBar = () => {
               fetch(
                 `http://localhost:8080/service/rfind/${name}`
               )
-                .then((response) => response.text())
-                .then((result) => {
-                  console.log("lhs", index1, fetchedData.apiComponentList);
-                  console.log("rhs", result[0]);
+                .then((response) => response.json())
+                .then((result: any) => {
+                  // console.log("lhs", index1, fetchedData.apiComponentList);
+                  //console.log("rhs", result);
                   fetchedData.apiComponentList[index1].ruleConfigExecution[index2] = result[0]
                 })
                 .catch((error) => console.log("error", error));
@@ -65,9 +67,14 @@ const SearchBar = () => {
           
           // index1++;
         }
-
-        navigate("/visualize", { state: JSON.stringify(fetchedData) });
+        //console.log("data1", fetchedData);
+        setTimeout(function () {
+          navigate("/visualize", { state: JSON.stringify(fetchedData) });
+        }, 1000);
+        //navigate("/visualize", { state: JSON.stringify(fetchedData) });
         return;
+      }else{
+        toast.error("Incorrect name provided");
       }
     //   toast.error("Incorrect name provided");
     // } catch (error) {
