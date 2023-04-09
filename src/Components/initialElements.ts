@@ -209,7 +209,7 @@ export const nodesData = (data: any): Node[] => {
             label: item.name,
             color: "#eba834",
             //info: res.data[0],
-            info: "lion",
+            info: item.name,
             // info: JSON.stringify(res.data[0], null, "\t").toString(),
           },
           position: { x: 0, y: 0 },
