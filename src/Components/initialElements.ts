@@ -358,7 +358,7 @@ export const edgesData = (data: any): Edge[] => {
           target: (index + 1).toString(),
           // sourceHandle: "bottom",
           // targetHandle: "top",
-          // animated: true,
+          animated: true,
         });
 
         index++;
